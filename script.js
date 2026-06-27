@@ -138,19 +138,45 @@
       star.style.top = Math.random() * 100 + '%';
 
       // Random twinkle timing
-      star.style.setProperty('--twinkle-duration', (2 + Math.random() * 4) + 's');
-      star.style.setProperty('--twinkle-delay', (Math.random() * 5) + 's');
+      const size = Math.random() < 0.1 ? 3 : Math.random() < 0.04 ? 2.2 : 1.2;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.setProperty('--twinkle-duration', (2.2 + Math.random() * 3.8) + 's');
+      star.style.setProperty('--twinkle-delay', (Math.random() * 4.5) + 's');
 
       // Some stars are larger or gold-colored
-      if (Math.random() > 0.85) {
+      if (Math.random() > 0.9) {
         star.classList.add('star--large');
       }
-      if (Math.random() > 0.9) {
+      if (Math.random() > 0.96) {
         star.classList.add('star--gold');
       }
 
       el.appendChild(star);
     }
+  }
+
+  function initGlobalStarfield() {
+    if (!document.body.querySelector('.global-stars')) {
+      const layer = document.createElement('div');
+      layer.className = 'global-stars';
+      document.body.appendChild(layer);
+    }
+
+    const layer = document.body.querySelector('.global-stars');
+    if (!layer.dataset.ready) {
+      const count = Math.max(140, Math.floor(window.innerWidth / 6));
+      createStars(layer, count);
+      layer.dataset.ready = 'true';
+    }
+
+    window.addEventListener('resize', () => {
+      const count = Math.max(140, Math.floor(window.innerWidth / 6));
+      const current = layer.querySelectorAll('.star').length;
+      if (current < count) {
+        createStars(layer, count - current);
+      }
+    });
   }
 
   /* ═══════════════════════════════════════════
@@ -842,6 +868,7 @@
     initLocation();
     initAccounts();
     initFooter();
+    initGlobalStarfield();
     initScrollAnimations();
 
     // Set story text immediately (photos load async)

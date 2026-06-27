@@ -5,19 +5,19 @@
 
 /* ─── CSS Variables ─── */
 :root {
-  --color-bg: #0a1628;
-  --color-bg-alt: #121d3a;
-  --color-bg-card: rgba(18, 29, 58, 0.85);
-  --color-text: #e8ecf2;
-  --color-text-light: #c0c8d8;
-  --color-text-muted: #7a8599;
-  --color-accent: #d4c5a0;
-  --color-accent-light: #e8dcc0;
-  --color-accent-dark: #b8a880;
-  --color-silver: #c0c8d8;
-  --color-border: rgba(192, 200, 216, 0.2);
-  --color-divider: rgba(192, 200, 216, 0.15);
-  --color-overlay: rgba(10, 22, 40, 0.7);
+  --color-bg: #060b16;
+  --color-bg-alt: #10192f;
+  --color-bg-card: rgba(13, 23, 43, 0.9);
+  --color-text: #f3f5fb;
+  --color-text-light: #d6dcf0;
+  --color-text-muted: #8a93af;
+  --color-accent: #f2d07b;
+  --color-accent-light: #ffe9b8;
+  --color-accent-dark: #c6a24f;
+  --color-silver: #c9d0e6;
+  --color-border: rgba(201, 208, 230, 0.2);
+  --color-divider: rgba(201, 208, 230, 0.16);
+  --color-overlay: rgba(4, 10, 20, 0.75);
   --color-kakao: #fee500;
   --color-naver: #03c75a;
   --color-white: #e8ecf2;
@@ -64,7 +64,10 @@ html {
 body {
   font-family: var(--font-serif);
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background:
+    radial-gradient(circle at top left, rgba(110, 91, 255, 0.18), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(242, 208, 123, 0.16), transparent 28%),
+    linear-gradient(180deg, #060b16 0%, #09111f 50%, #050814 100%);
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -116,6 +119,14 @@ a {
 /* ═══════════════════════════════════════════
    Twinkling Stars (CSS)
    ═══════════════════════════════════════════ */
+.global-stars {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 .star {
   position: absolute;
   width: 2px;
@@ -125,6 +136,7 @@ a {
   animation: twinkle var(--twinkle-duration, 3s) ease-in-out infinite;
   animation-delay: var(--twinkle-delay, 0s);
   opacity: 0;
+  transform: translateZ(0);
 }
 
 .star--large {
@@ -426,11 +438,23 @@ a {
 .main-content {
   max-width: 100%;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 /* ─── Section Base ─── */
 .section {
   padding: var(--spacing-2xl) 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(242, 208, 123, 0.06), transparent 45%);
+  pointer-events: none;
 }
 
 .section__inner {
@@ -447,6 +471,7 @@ a {
   letter-spacing: 4px;
   margin-bottom: var(--spacing-lg);
   color: var(--color-white);
+  text-shadow: 0 0 18px rgba(242, 208, 123, 0.16);
 }
 
 /* ─── Star Icon ─── */
@@ -469,7 +494,9 @@ a {
   justify-content: flex-end;
   padding: 0;
   overflow: hidden;
-  background-color: var(--color-bg);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(149, 127, 255, 0.2), transparent 22%),
+    linear-gradient(180deg, #050814 0%, #07101e 42%, #0a1628 100%);
 }
 
 .hero__stars {
@@ -887,8 +914,8 @@ a {
 }
 
 .interview__question {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--color-border);
+  background: linear-gradient(135deg, rgba(242, 208, 123, 0.12), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(242, 208, 123, 0.18);
   border-radius: var(--radius-md);
   padding: var(--spacing-md);
   display: flex;
@@ -916,8 +943,8 @@ a {
 }
 
 .interview__card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--color-border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(8, 16, 32, 0.7));
+  border: 1px solid rgba(201, 208, 230, 0.18);
   border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
@@ -1006,11 +1033,11 @@ a {
 
 .timeline__media,
 .timeline__text {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--color-border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(8, 16, 32, 0.72));
+  border: 1px solid rgba(201, 208, 230, 0.18);
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(4, 8, 16, 0.16);
+  box-shadow: 0 10px 30px rgba(4, 8, 16, 0.24);
 }
 
 .timeline__media img {
@@ -1122,7 +1149,9 @@ a {
   aspect-ratio: 1;
   overflow: hidden;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 10px;
+  border: 1px solid rgba(201, 208, 230, 0.16);
+  box-shadow: 0 8px 24px rgba(3, 8, 16, 0.2);
 }
 
 .gallery__item img {
@@ -1343,17 +1372,19 @@ a {
   transition: var(--transition);
   cursor: pointer;
   line-height: 1;
+  box-shadow: 0 8px 20px rgba(4, 8, 16, 0.2);
 }
 
 .btn--outline {
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(242, 208, 123, 0.22);
   color: var(--color-text-light);
-  background: transparent;
+  background: linear-gradient(135deg, rgba(242, 208, 123, 0.12), rgba(255, 255, 255, 0.03));
 }
 
 .btn--outline:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
+  box-shadow: 0 0 0 1px rgba(242, 208, 123, 0.22), 0 8px 22px rgba(242, 208, 123, 0.15);
 }
 
 .btn--text {
@@ -1362,34 +1393,11 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
+  box-shadow: none;
 }
 
 .btn--text:hover {
   color: var(--color-accent-light);
-}
-
-.btn--kakao {
-  background: var(--color-kakao);
-  color: #3a1d1d;
-  padding: 0.75rem 1.75rem;
-  border-radius: var(--radius-sm);
-  font-weight: 400;
-}
-
-.btn--kakao:hover {
-  filter: brightness(0.95);
-}
-
-.btn--naver {
-  background: var(--color-naver);
-  color: #ffffff;
-  padding: 0.75rem 1.75rem;
-  border-radius: var(--radius-sm);
-  font-weight: 400;
-}
-
-.btn--naver:hover {
-  filter: brightness(0.9);
 }
 
 /* ═══════════════════════════════════════════
@@ -1399,8 +1407,8 @@ a {
   padding: var(--spacing-lg) var(--spacing-md);
   padding-bottom: calc(var(--spacing-lg) + var(--safe-bottom));
   text-align: center;
-  background: var(--color-bg);
-  border-top: 1px solid var(--color-border);
+  background: linear-gradient(180deg, rgba(5, 8, 20, 0.35), rgba(5, 8, 20, 0.65));
+  border-top: 1px solid rgba(201, 208, 230, 0.16);
 }
 
 .footer__text {
