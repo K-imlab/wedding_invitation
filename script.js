@@ -512,6 +512,57 @@
      Gallery Section
      ═══════════════════════════════════════════ */
 
+  function initTimeline() {
+    const container = $('#timelineContent');
+    if (!container) return;
+
+    const items = [
+      {
+        year: '2019',
+        title: '처음 만난 날',
+        description: '우리는 같은 자리에서 우연히 알게 되었고, 그날의 따뜻한 인사부터 서로를 더 알고 싶어졌어요.',
+        image: 'images/hero/1.jpg'
+      },
+      {
+        year: '2020',
+        title: '서로의 일상을 공유하며',
+        description: '작은 식사와 산책, 함께한 평범한 순간들이 점점 특별해졌고, 우리만의 이야기가 자라나기 시작했어요.',
+        image: 'images/hero/1.jpg'
+      },
+      {
+        year: '2022',
+        title: '함께하는 삶으로',
+        description: '서로의 꿈과 걱정을 나누며, 더 깊은 사랑으로 이어지는 시간을 보냈어요.',
+        image: 'images/hero/1.jpg'
+      },
+      {
+        year: '2026',
+        title: '앞으로의 시작',
+        description: '이제 함께 웃고, 함께 살아갈 새로운 날들을 약속하는 순간이 다가오고 있어요.',
+        image: 'images/hero/1.jpg'
+      }
+    ];
+
+    container.innerHTML = '';
+
+    items.forEach((item, index) => {
+      const block = document.createElement('div');
+      block.className = `timeline__item animate-item${index % 2 === 1 ? ' timeline__item--reverse' : ''}`;
+      block.setAttribute('data-animate', 'fade-up');
+      block.innerHTML = `
+        <div class="timeline__media">
+          <img src="${item.image}" alt="${item.title}" loading="lazy">
+        </div>
+        <div class="timeline__text">
+          <p class="timeline__year">${item.year}</p>
+          <h3 class="timeline__title">${item.title}</h3>
+          <p class="timeline__desc">${item.description}</p>
+        </div>
+      `;
+      container.appendChild(block);
+    });
+  }
+
   function initGallery(galleryImages) {
     const grid = $('#galleryGrid');
     // Remove loading placeholder if present
@@ -781,6 +832,7 @@
     initGreeting();
     initCalendar();
     initInterview();
+    initTimeline();
 
     // Show loading placeholders while detecting images
     showLoadingPlaceholders();
