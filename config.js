@@ -53,7 +53,21 @@ const CONFIG = {
   // ── 우리의 이야기 ──
   story: {
     title: "우리의 이야기",
-    content: "서로 다른 길을 걷던 두 사람이\n하나의 길을 함께 걷게 되었습니다.\n\n여러분을 소중한 자리에 초대합니다."
+    content: "서로 다른 길을 걷던 두 사람이\n하나의 길을 함께 걷게 되었습니다.\n\n여러분을 소중한 자리에 초대합니다.",
+    people: {
+      groom: {
+        name: "김희중",
+        phone: "010-1234-5678",
+        intro: "차분하고 따뜻한 마음으로\n사람들과 소통하는 것을 좋아합니다.",
+        image: "images/hero/kid_heejung.jpg"
+      },
+      bride: {
+        name: "김혜주",
+        phone: "010-8765-4321",
+        intro: "여유로운 일상을 좋아하고,\n사람을 편안하게 만드는 것을 좋아합니다.",
+        image: "images/hero/kid_hyeju.jpg"
+      }
+    }
   },
 
   // ── 오시는 길 ──

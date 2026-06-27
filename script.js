@@ -364,21 +364,148 @@
     $('#storyTitle').textContent = CONFIG.story.title;
     $('#storyContent').textContent = CONFIG.story.content;
 
-    const container = $('#storyPhotos');
-    // Remove loading placeholder if present
-    const placeholder = container.querySelector('.loading-placeholder');
-    if (placeholder) placeholder.remove();
+    const peopleContainer = $('#storyPeople');
+    const people = CONFIG.story.people || {};
+    const personCards = [
+      { role: '신랑', ...people.groom },
+      { role: '신부', ...people.bride }
+    ];
 
-    if (storyImages.length === 0) return;
+    peopleContainer.innerHTML = personCards.map(({ role, name, phone, intro, image }) => `
+      <article class="story__person animate-item" data-animate="fade-up">
+        <img class="story__person-photo" src="${image || 'images/hero/1.jpg'}" alt="${role} ${name}" loading="lazy">
+        <div class="story__person-body">
+          <div class="story__person-meta">
+            <p class="story__person-label">${role}</p>
+            <h3 class="story__person-name">${name}</h3>
+            <a class="story__person-phone" href="tel:${phone || ''}" data-phone="${phone || ''}" aria-label="연락처 복사">
+              <svg class="story__person-phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.63 2.6a2 2 0 0 1-.45 2.11L7.4 8.4a16 16 0 0 0 6.18 6.18l1.97-1.89a2 2 0 0 1 2.11-.45c.83.3 1.7.51 2.6.63A2 2 0 0 1 22 16.92Z"/>
+              </svg>
+            </a>
+          </div>
+          <p class="story__person-intro">${(intro || '').replace(/\n/g, '<br>')}</p>
+        </div>
+      </article>
+    `).join('');
 
-    storyImages.forEach((src, i) => {
-      const div = document.createElement('div');
-      div.className = 'story__photo-item animate-item';
-      div.setAttribute('data-animate', 'fade-up');
-      div.innerHTML = `<img src="${src}" alt="스토리 사진 ${i + 1}" loading="lazy">`;
-      div.addEventListener('click', () => openPhotoModal(storyImages, i));
-      container.appendChild(div);
+    peopleContainer.querySelectorAll('.story__person-phone').forEach(link => {
+      link.addEventListener('click', async event => {
+        event.preventDefault();
+        const phone = link.dataset.phone || link.textContent.trim();
+        if (!phone || phone === '연락처 미정') {
+          showToast('등록된 연락처가 없습니다');
+          return;
+        }
+        await copyToClipboard(phone, '연락처가 복사되었습니다');
+      });
     });
+
+  }
+
+  /* ═══════════════════════════════════════════
+     Interview Section
+     ═══════════════════════════════════════════ */
+
+  function initInterview() {
+    const section = $('#interview');
+    if (!section) return;
+
+    const container = $('#interviewContent');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    const contents = [
+      {
+        question: '우리의 인생에서 가장 소중한 순간은 무엇인가요?',
+        cards: [
+          {
+            name: '신랑',
+            answer: '가족과 함께하는 평범하지만 따뜻한 순간이 가장 소중합니다!',
+            image: 'images/hero/interview_1_groom.jpg',
+            alt: '신랑 인터뷰'
+          },
+          {
+            name: '신부',
+            answer: '서로의 마음을 이해하고 함께 웃는 하루가 가장 큰 행복입니다.',
+            image: 'images/hero/interview_1_bride.jpg',
+            alt: '신부 인터뷰'
+          }
+        ]
+      },
+      {
+        question: '함께하는 삶에서 가장 중요하게 생각하는 가치는 무엇인가요?',
+        cards: [
+          {
+            name: '신랑',
+            answer: '서로를 존중하고 배려하는 마음이 가장 중요하다고 생각합니다.',
+            image: 'images/hero/interview_2_groom.jpg',
+            alt: '신랑 인터뷰'
+          },
+          {
+            name: '신부',
+            answer: '함께 웃고, 함께 아프고, 함께 성장하는 삶이 가장 소중합니다.',
+            image: 'images/hero/interview_2_bride.jpg',
+            alt: '신부 인터뷰'
+          }
+        ]
+      },
+      // {
+      //   question: '앞으로 함께 이루고 싶은 꿈이 있다면 무엇인가요?',
+      //   cards: [
+      //     {
+      //       name: '신랑',
+      //       answer: '서로의 꿈을 응원하며 평생 함께 웃을 수 있는 가정을 만들고 싶습니다.',
+      //       image: 'images/hero/interview_3_groom.jpg',
+      //       alt: '신랑 인터뷰'
+      //     },
+      //     {
+      //       name: '신부',
+      //       answer: '작은 일상도 행복하게 채우며 오래 함께하고 싶은 마음이 큽니다.',
+      //       image: 'images/hero/interview_3_bride.jpg',
+      //       alt: '신부 인터뷰'
+      //     }
+      //   ]
+      // }
+    ];
+
+    contents.forEach((content, index) => {
+      const item = document.createElement('div');
+      item.className = 'interview__item animate-item';
+      item.setAttribute('data-animate', 'fade-up');
+
+      const question = document.createElement('div');
+      question.className = 'interview__question';
+      question.innerHTML = `
+        <p class="interview__question-label">Q${index + 1}</p>
+        <p class="interview__question-text">${content.question}</p>
+      `;
+
+      const answers = document.createElement('div');
+      answers.className = 'interview__answers';
+
+      content.cards.forEach((itemContent) => {
+        const card = document.createElement('article');
+        card.className = 'interview__card';
+        card.innerHTML = `
+          <img class="interview__photo" src="${itemContent.image}" alt="${itemContent.alt}" loading="lazy">
+          <div class="interview__body">
+            <h3 class="interview__name">${itemContent.name}</h3>
+            <p class="interview__answer">${itemContent.answer}</p>
+          </div>
+        `;
+        answers.appendChild(card);
+      });
+
+      item.appendChild(question);
+      item.appendChild(answers);
+      container.appendChild(item);
+    });
+
+    if (typeof window !== 'undefined' && window.observeAnimatedElements) {
+      window.observeAnimatedElements();
+    }
   }
 
   /* ═══════════════════════════════════════════
@@ -653,6 +780,7 @@
     initCountdown();
     initGreeting();
     initCalendar();
+    initInterview();
 
     // Show loading placeholders while detecting images
     showLoadingPlaceholders();
