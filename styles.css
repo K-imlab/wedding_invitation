@@ -41,7 +41,7 @@ html {
 body {
   font-family: 'Noto Serif KR', 'Batang', serif;
   font-weight: 300;
-  color: var(--ink);
+  color: var(--rose-500);
   background:
     radial-gradient(circle at top left, rgba(183, 110, 121, 0.10), transparent 28%),
     radial-gradient(circle at bottom right, rgba(200, 169, 110, 0.12), transparent 24%),
@@ -429,7 +429,7 @@ a {
   z-index: 3;
   text-align: center;
   padding: 0 1.25rem 2.25rem;
-  color: var(--white);
+  color: var(--rose-500);
 }
 
 .hero__label {
