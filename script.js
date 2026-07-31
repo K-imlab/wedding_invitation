@@ -545,6 +545,7 @@
     const items = [
       {
         year: '우리의 시작',
+        title: '',
         description: '설렘에 잠 못 이루던 우리, 서로를 알아간지 4일 만에 만남을 시작했습니다!',
         image: 'images/hero/IMG_5631.jpeg'
       },
