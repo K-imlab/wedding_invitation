@@ -544,28 +544,28 @@
 
     const items = [
       {
-        year: '2019',
-        title: '처음 만난 날',
-        description: '우리는 같은 자리에서 우연히 알게 되었고, 그날의 따뜻한 인사부터 서로를 더 알고 싶어졌어요.',
-        image: 'images/hero/1.jpg'
+        year: '처음 만난 날',
+        title: '방화수류정의 보름달',
+        description: '시간 가는 줄 모르고 앉아서 얘기를 나누던 날, 호수에 비친 보름달 처럼 예쁜 하루',
+        image: 'images/hero/story_1.jpg'
       },
       {
-        year: '2020',
-        title: '서로의 일상을 공유하며',
-        description: '작은 식사와 산책, 함께한 평범한 순간들이 점점 특별해졌고, 우리만의 이야기가 자라나기 시작했어요.',
-        image: 'images/hero/1.jpg'
+        year: '오늘 부터 1일',
+        title: '광교호수공원',
+        description: '첫날의 설렘을 이어가고 싶은 마음에 둘이 동시에 외쳤던 말: 사귀자!',
+        image: 'images/hero/story_2.jpg'
       },
       {
-        year: '2022',
-        title: '함께하는 삶으로',
-        description: '서로의 꿈과 걱정을 나누며, 더 깊은 사랑으로 이어지는 시간을 보냈어요.',
-        image: 'images/hero/1.jpg'
+        year: '평생을 함께해',
+        title: '대만 여행',
+        description: '여행하면서도 한번도 안 싸운 두 사람, 든든하게 혜주를 지키는 희중, 희중의 모든 걸 감싸 안는 혜주, 결혼을 결심!',
+        image: 'images/hero/story_3.jpg'
       },
       {
-        year: '2026',
-        title: '앞으로의 시작',
+        year: '현재',
+        title: '결혼 준비 중',
         description: '이제 함께 웃고, 함께 살아갈 새로운 날들을 약속하는 순간이 다가오고 있어요.',
-        image: 'images/hero/1.jpg'
+        image: 'images/hero/story_4.jpg'
       }
     ];
 
