@@ -57,14 +57,14 @@ const CONFIG = {
     people: {
       groom: {
         name: "김희중",
-        phone: "010-1234-5678",
-        intro: "차분하고 따뜻한 마음으로\n사람들과 소통하는 것을 좋아합니다.",
+        phone: "010-3915-4536",
+        intro: "ISTP 만능재주꾼\n내향적이지만 다른 사람의 얘기를 듣는 걸 좋아합니다.",
         image: "images/hero/kid_heejung.jpg"
       },
       bride: {
         name: "김혜주",
-        phone: "010-8765-4321",
-        intro: "여유로운 일상을 좋아하고,\n사람을 편안하게 만드는 것을 좋아합니다.",
+        phone: "010-3225-5633",
+        intro: "ENFJ 언변능숙형 선두자\n외향적이고 조잘조잘 수다 떠는 걸 좋아합니다.",
         image: "images/hero/kid_hyeju.jpg"
       }
     }
@@ -79,14 +79,12 @@ const CONFIG = {
   // ── 마음 전하실 곳 ──
   accounts: {
     groom: [
-      { role: "신랑", name: "김희중", bank: "우리은행", number: "1002-750-726027" },
-      { role: "아버지", name: "김동년", bank: "신한은행", number: "000-000-000000" },
-      { role: "어머니", name: "박향미", bank: "우리은행", number: "000-000-000000" }
+      { role: "신랑", name: "김희중", bank: "우리은행", number: "1002-750-726027" }
     ],
     bride: [
-      { role: "신부", name: "김혜주", bank: "하나은행", number: "000-000-000000" },
-      { role: "아버지", name: "김찬호", bank: "기업은행", number: "000-000-000000" },
-      { role: "어머니", name: "이현미", bank: "농협은행", number: "000-000-000000" }
+      { role: "신부", name: "김혜주", bank: "카카오뱅크", number: "3333-0433-20134" },
+      { role: "아버지", name: "김찬호", bank: "하나은행", number: "2278-9042-0065-07" },
+      { role: "어머니", name: "이현미", bank: "신한은행", number: "11047-8846-587" }
     ]
   },
 
