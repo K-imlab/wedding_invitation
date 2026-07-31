@@ -556,7 +556,7 @@
         image: 'images/hero/IMG_5630.jpeg'
       },
       {
-        year: '기쁜일은 함께하기',
+        year: '기쁜일 함께하기',
         title: '',
         description: '일주일 차이나는 생일도 함께 챙기며 사랑을 주고 받았습니다.',
         image: 'images/hero/IMG_5629.jpeg'
