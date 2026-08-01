@@ -553,7 +553,7 @@
         year: '쌓여가는 마음',
         title: '',
         description: '여러 경험을 함께하면서 더욱 서로를 의지하고 아끼게 되었습니다.',
-        image: 'images/hero/IMG_5630.jpeg'
+        image: 'images/hero/IMG_5634.jpeg'
       },
       {
         year: '기쁜일 함께하기',
