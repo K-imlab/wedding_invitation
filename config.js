@@ -52,19 +52,19 @@ const CONFIG = {
 
   // ── 우리의 이야기 ──
   story: {
-    title: "우리의 이야기",
-    content: "서로 다른 길을 걷던 두 사람이\n하나의 길을 함께 걷게 되었습니다.\n\n여러분을 소중한 자리에 초대합니다.",
+    title: "저희를 소개합니다",
+    content: "",
     people: {
       groom: {
         name: "김희중",
         phone: "010-3915-4536",
-        intro: "ISTP 만능재주꾼\n내향적이지만 다른 사람의 얘기를 듣는 걸 좋아합니다.",
+        intro: "ISTP 곰돌이푸\n연구원 포근하고 깊은 사람",
         image: "images/hero/kid_heejung.jpg"
       },
       bride: {
         name: "김혜주",
         phone: "010-3225-5633",
-        intro: "ENFJ 언변능숙형 선두자\n외향적이고 조잘조잘 수다 떠는 걸 좋아합니다.",
+        intro: "ENFJ 조잘조잘 오리\n초등교사 밝고 따뜻한 사람",
         image: "images/hero/kid_hyeju.jpg"
       }
     }
@@ -84,7 +84,7 @@ const CONFIG = {
     bride: [
       { role: "신부", name: "김혜주", bank: "카카오뱅크", number: "3333-0433-20134" },
       { role: "아버지", name: "김찬호", bank: "하나은행", number: "2278-9042-0065-07" },
-      { role: "어머니", name: "이현미", bank: "신한은행", number: "11047-8846-587" }
+      { role: "어머니", name: "이현미", bank: "신한은행", number: "110-047-797420" }
     ]
   },
 
