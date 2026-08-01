@@ -431,13 +431,13 @@ a {
   z-index: 3;
   text-align: center;
   padding: 0 1.25rem 2.25rem;
-  color: var(--rose-700);
+  color: var(--chacol);
 }
 
 .hero__label {
   font-family: 'Great Vibes', 'Cormorant Garamond', cursive;
   font-size: 1.15rem;
-  color: var(--gold-200);
+  color: var(--chacol);
   margin-bottom: 0.45rem;
   letter-spacing: 0.16em;
 }
@@ -461,7 +461,7 @@ a {
   font-size: 0.9rem;
   line-height: 1.7;
   letter-spacing: 0.08em;
-  color: var(--rose-700);
+  color: var(--chacol);
 }
 
 .countdown {
@@ -475,7 +475,7 @@ a {
   font-size: 0.78rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--rose-700);
+  color: var(--chacol);
   margin-bottom: 0.9rem;
 }
 
