@@ -221,6 +221,7 @@
     $('#heroNames').textContent = `${CONFIG.groom.name}  ·  ${CONFIG.bride.name}`;
     $('#heroDate').textContent = formatDate(CONFIG.wedding.date, CONFIG.wedding.time);
     $('#heroVenue').textContent = CONFIG.wedding.venue;
+    $('#heroHall').textContent = CONFIG.wedding.hall;
   }
 
   /* ═══════════════════════════════════════════
