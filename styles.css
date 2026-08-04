@@ -437,7 +437,8 @@ a {
 .hero__label {
   font-family: 'Great Vibes', 'Cormorant Garamond', cursive;
   font-size: 1.15rem;
-  color: var(--chacol);
+  font-weight: 700;
+  color: var(--gold-200);
   margin-bottom: 0.45rem;
   letter-spacing: 0.16em;
 }
@@ -445,7 +446,7 @@ a {
 .hero__names {
   font-family: 'Noto Serif KR', serif;
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: 0.14em;
   margin-bottom: 0.75rem;
   line-height: 1.5;
@@ -459,6 +460,14 @@ a {
 .hero__date,
 .hero__venue {
   font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.7;
+  letter-spacing: 0.08em;
+  color: var(--chacol);
+}
+.hero__hall {
+  font-size: 0.9rem;
+  font-weight: 700;
   line-height: 1.7;
   letter-spacing: 0.08em;
   color: var(--chacol);
@@ -473,6 +482,7 @@ a {
 
 .countdown__label {
   font-size: 0.78rem;
+  font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--chacol);
